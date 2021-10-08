@@ -30,13 +30,6 @@ export const validateData = (data) => {
     }
   }
 
-  if (
-    field.length !== rowsAndColumns[1] ||
-    field[0].length !== rowsAndColumns[0]
-  ) {
-    throw "The size of field doesn't match with received number of rows and columns.";
-  }
-
   return {
     field: field,
     generationCount: generationCount,
