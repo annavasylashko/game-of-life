@@ -59,6 +59,12 @@ describe("Validation utils", () => {
         );
       });
 
+      it("amount of rows and columns should be 3 or more", () => {
+        expect(() => validateData("3\n1 1\n....")).toThrow(
+          "Amount of rows and columns should be 3 or more."
+        );
+      });
+
       it("number of field columns if they are not even in every row", () => {
         expect(() => validateData("3\n8 3\n.......\n..x..x..\n..x..")).toThrow(
           "Nubmer of columns is not even in every row."
@@ -73,14 +79,6 @@ describe("Validation utils", () => {
         ).toThrow(
           "The size of field doesn't match with received number of rows and columns."
         );
-      });
-
-      it("invalid character for cell value", () => {
-        expect(() =>
-          validateData(
-            "3\n8 5\n........\n..a..x..\n..x.....\n..x.....\n...x...."
-          )
-        ).toThrow("Invalid character for cell value");
       });
     });
   });

@@ -26,8 +26,14 @@ export const writeFile = (data) =>
     data && logger("The result is successfully written in file output.txt");
   });
 
-export const executeProgram = () =>
-  fs.readFile("input.txt", "utf8", (err, data) => {
+export const executeProgram = () => {
+  const input = process.env.npm_config_input
+    ? process.env.npm_config_input
+    : "input.txt";
+
+  console.log(input);
+
+  return fs.readFile(input, "utf8", (err, data) => {
     try {
       const outputData = handleData(data);
 
@@ -36,5 +42,6 @@ export const executeProgram = () =>
       logger(error || "Input file is empty");
     }
   });
+};
 
 executeProgram();

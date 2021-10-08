@@ -19,7 +19,7 @@ export const validateData = (data) => {
   }
 
   if (rowsAndColumns[0] < 3 || rowsAndColumns[1] < 3) {
-    throw "Amount of rows and columns should be 3 or more";
+    throw "Amount of rows and columns should be 3 or more.";
   }
 
   const field = splitedData.map((row) => Array.from(row));
@@ -36,17 +36,6 @@ export const validateData = (data) => {
   ) {
     throw "The size of field doesn't match with received number of rows and columns.";
   }
-
-  // for (let i = 0; i < field.length; i++) {
-  //   for (let j = 0; j < field[0].length; j++) {
-  //     const invalidCellValue = Boolean(field[j][i] !== "." || "x");
-  //     console.log(invalidCellValue, field[j][i], j, i);
-
-  //     if (invalidCellValue) {
-  //       throw "Invalid character for cell value";
-  //     }
-  //   }
-  // }
 
   return {
     field: field,
