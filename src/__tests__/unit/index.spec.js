@@ -101,6 +101,7 @@ describe("Executed file", () => {
 
       executeProgram();
 
+      expect(logger).toHaveBeenCalledWith("Success");
       expect(fs.readFile).toBeCalledWith(
         "input.txt",
         "utf8",

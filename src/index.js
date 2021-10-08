@@ -31,8 +31,7 @@ export const executeProgram = () => {
     ? process.env.npm_config_input
     : "input.txt";
 
-  console.log(input);
-
+  logger("Success");
   return fs.readFile(input, "utf8", (err, data) => {
     try {
       const outputData = handleData(data);
